@@ -46,7 +46,7 @@
     width: 0;
 }
 .gantt_selected {
-    background: none;
+    /*background: none;*/
 }
 .gantt_task_line.gantt_project {
     background: #d4d6db;
