@@ -1,11 +1,6 @@
 # vue-calendar
 
-> a calendar component for Vue.js
-
-这是一个基于vue2.0仿 Trello 滚动切换日历的Demo。
-参考了github的项目（https://github.com/diaocheng/calendar）
-结合自身项目需求，修复了一些bug，增加了一些新功能
-具体请看[Demo](https://wuyaoxing.github.io/calendar/)和源码
+> a gantt component for Vue.js
 
 ## Build Setup
 
@@ -21,10 +16,46 @@ npm run build
 
 ```
 
+## gantt功能总结
+
+1. 按钮切换
+    - 今天
+    - 上一屏
+    - 下一屏
+    
+2. 时间 marker
+    - TodayMarker
+    - 项目Marker
+    
+3. 拖拽
+    - moveTask
+    - 左右拖拽task
+    
+4. 任务样式
+    - 没有开始的时间
+    - 没有结束的时间
+    - 两者都没有
+
+5. 状态
+    - 未开始
+    - 进行中
+    - 已完成
+    - 逾期
+
+6. 点击显示任务弹窗
+
+7. tooltip提示信息
+
+8. 数据
+    - 过滤
+    - 筛选
+    - 格式化
+
 TODO
-日历插件还需要完善
-- 滚动切换目前使用的是直接控制scrollTop的值，本来打算使用jquery的动画去做，考虑到目前的流行趋势便作罢，目前正在寻求新的解决方案。
-- 滚动和切换时会出现当月日历不在正中央，这个问题依赖于滚动动画，目前的js算法可能存在问题，上一个问题解决后这个问题便迎刃而解了。
+
+- 甘特图事件功能完善
+- 上述功能将逐个实现
+- 弹窗写在外面，可以自定义
 
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
