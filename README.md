@@ -1,6 +1,6 @@
-# vue-calendar
+# vue-gantt
 
-> a gantt component for Vue.js
+> dhtmlxGantt with vue.js, A gantt component for Vue.js
 
 ## Build Setup
 
