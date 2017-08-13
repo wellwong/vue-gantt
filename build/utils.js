@@ -1,6 +1,52 @@
+/* eslint-disable */
 var path = require('path')
 var config = require('../config')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
+
+// 多页面配置
+var glob = require('glob')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+var PAGE_PATH = path.resolve(__dirname, '../src/pages')
+var merge = require('webpack-merge')
+
+//多入口配置
+exports.entries = function() {
+    var entryFiles = glob.sync(PAGE_PATH + '/*/*.js')
+    var map = {}
+    entryFiles.forEach((filePath) => {
+        var filename = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf('.'))
+        map[filename] = filePath
+    })
+    return map
+}
+
+//多页面输出配置
+exports.htmlPlugin = function() {
+    let entryHtml = glob.sync(PAGE_PATH + '/*/*.html')
+    let arr = []
+    entryHtml.forEach((filePath) => {
+        let filename = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf('.'))
+        let conf = {
+            title: filename,
+            template: filePath,
+            filename: filename + '.html',
+            chunks: ['manifest', 'vendor', filename],
+            inject: true
+        }
+        if (process.env.NODE_ENV === 'production') {
+            conf = merge(conf, {
+                minify: {
+                    removeComments: true,
+                    collapseWhitespace: true,
+                    removeAttributeQuotes: true
+                },
+                chunksSortMode: 'dependency'
+            })
+        }
+        arr.push(new HtmlWebpackPlugin(conf))
+    })
+    return arr
+}
 
 exports.assetsPath = function (_path) {
   var assetsSubDirectory = process.env.NODE_ENV === 'production'
@@ -44,7 +90,7 @@ exports.cssLoaders = function (options) {
     }
   }
 
-  // http://vuejs.github.io/vue-loader/en/configurations/extract-css.html
+  // https://vue-loader.vuejs.org/en/configurations/extract-css.html
   return {
     css: generateLoaders(),
     postcss: generateLoaders(),
