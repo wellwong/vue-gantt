@@ -4,9 +4,16 @@
     </div>
 </template>
 <script>
-// 将gantt框架移动到lib,使用固定版本dhtmlxGantt v.4.1.0,便于视图的稳定性, 也便于框架代码修改
-import './lib/dhtmlxgantt.css'
-import gantt from './lib/dhtmlxgantt'
+// import './lib/v.4.1/dhtmlxgantt.css'
+// import gantt from './lib/v.4.1/dhtmlxgantt'
+// import './lib/v.4.1/dhtmlxgantt_marker'
+// import './lib/v.4.1/dhtmlxgantt_tooltip'
+
+import './lib/v.4.2/dhtmlxgantt.css'
+import gantt from './lib/v.4.2/dhtmlxgantt'
+import './lib/v.4.2/dhtmlxgantt_marker'
+import './lib/v.4.2/dhtmlxgantt_tooltip'
+
 import './lib/lang/locale_cn'
 import './lib/dhtmlxgantt_marker'
 import './lib/dhtmlxgantt_tooltip'

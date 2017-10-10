@@ -11,7 +11,7 @@ export default new Router({
         {
             path: '/',
             name: 'gantt',
-            component: () => import('views/gantt')
+            component: () => import(/* webpackChunkName: "gantt" */ 'views/gantt')
         },
     ]
 })

@@ -1,14 +1,14 @@
-var express = require('express')
-var webpack = require('webpack')
-var config = require('../config/index')
+const express = require('express')
+const webpack = require('webpack')
+const config = require('../config/index')
 const opn = require('opn')
 
-var webpackConfig = require('./webpack.prod.conf')
+const webpackConfig = require('./webpack.prod.conf')
 
-var app = express()
-var compiler = webpack(webpackConfig)
+const app = express()
+const compiler = webpack(webpackConfig)
 
-var devMiddleware = require('webpack-dev-middleware')(compiler, {
+const devMiddleware = require('webpack-dev-middleware')(compiler, {
     publicPath: webpackConfig.output.publicPath,
     quiet: true
 })
@@ -16,9 +16,9 @@ var devMiddleware = require('webpack-dev-middleware')(compiler, {
 app.use(devMiddleware)
 app.use(express.static('./dist'))
 
-var port = process.env.PORT || config.build.port
-var autoOpenBrowser = config.build.autoOpenBrowser
-var uri = 'http://localhost:' + port
+const port = process.env.PORT || config.build.port
+const autoOpenBrowser = config.build.autoOpenBrowser
+const uri = 'http://localhost:' + port
 
 module.exports = app.listen(port, (err) => {
     if (err) {

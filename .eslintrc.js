@@ -46,7 +46,7 @@ module.exports = {
         // http://eslint.org/docs/rules/no-restricted-properties
         'no-restricted-properties': 0,
         'no-bitwise': ["error", { "allow": ["&", "|"] }],
-
+        'no-mixed-operators': ["error", {"allowSamePrecedence": true}],
         // es6
         'no-confusing-arrow': ["error", {"allowParens": true}],
 
